@@ -34,17 +34,19 @@ type FE = curv::elliptic::curves::secp256_k1::FE;
 
 const SECURITY: usize = 256;
 
+#[derive(Clone, Serialize, Deserialize)]
 pub struct Keys {
     pub u_i: FE,
     pub y_i: GE,
     pub party_index: usize,
 }
 
+#[derive(Clone, Serialize, Deserialize)]
 pub struct KeyGenBroadcastMessage1 {
     com: BigInt,
 }
 
-#[derive(Debug)]
+#[derive(Debug, Serialize, Deserialize)]
 pub struct Parameters {
     pub threshold: usize,   //t
     pub share_count: usize, //n
